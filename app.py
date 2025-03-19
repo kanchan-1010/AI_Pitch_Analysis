@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request, redirect, url_for
 from dotenv import load_dotenv
 import os
@@ -85,14 +84,18 @@ def analyze_pitch_gpt(description):
                     {"role": "user", "content": f"Analyze this section: {description}"}
                 ]
             )
-            sections[section]["score"] = evaluate_section(section_feedback.choices[0].message.content)
+            response_content = section_feedback.choices[0].message.content
+            print(f"Response from Gemini API for {section}: {response_content}")  # Debugging line to log the response
+            sections[section]["score"] = evaluate_section(response_content)
+
         
         total_score = sum(sections[section]["score"] * sections[section]["weight"] for section in sections if sections[section]["weight"] > 0)
 
         strengths = identify_strengths(sections)
         weaknesses = identify_weaknesses(sections)
         
-        feedback_summary = f"Total Score: {total_score:.2f}/100\nStrengths: {strengths}\nWeaknesses: {weaknesses}\n"
+        feedback_summary = f"Pitch Score: {total_score:.2f}/100\nAI-Generated Feedback:\nStrengths: {strengths}\nWeaknesses: {weaknesses}\n"
+
         
         # Provide personalized feedback
         feedback_summary += "Suggestions for Improvement:\n"
@@ -122,12 +125,15 @@ def identify_weaknesses(sections):
     return ", ".join([section for section, data in sections.items() if data["score"] <= 70])
 
 def extract_text_from_pdf(pdf_file):
-    """Extract text from uploaded PDF file, using OCR if necessary."""
+    """Extract text from uploaded PDF file, using OCR if necessary.""" 
     text = ""
+    # Use OCR to extract text from images in the PDF
+    text = extract_text_with_ocr(pdf_file)
+    
     # Check if the PDF is scanned or empty
     if not text.strip():
-        # Use OCR to extract text from images in the PDF
-        text = extract_text_with_ocr(pdf_file)
+        return "No text extracted from PDF."
+
 
     try:
         with pdfplumber.open(pdf_file) as pdf:
@@ -139,6 +145,7 @@ def extract_text_from_pdf(pdf_file):
         return f"Error extracting text: {e}"
 
     return text.strip() if text.strip() else "No text extracted from PDF."
+
 
 def extract_text_with_ocr(pdf_file):
     """Extract text from images in the PDF using OCR."""
