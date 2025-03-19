@@ -34,8 +34,8 @@ AI Pitch Analysis is a Flask web application designed to assist entrepreneurs an
 
    Make sure to replace `your_openai_api_key` with your actual OpenAI API key.
 
-## Usage
-1. **Run the application**:
+## Usage and CSV Analysis
+1. **Run the application** and analyze a pitch deck:
    ```bash
    python app.py
    ```
@@ -43,6 +43,10 @@ AI Pitch Analysis is a Flask web application designed to assist entrepreneurs an
 2. **Open your web browser and go to** `http://127.0.0.1:5000`.
 
 3. **Upload your pitch deck PDF** and click "Analyze Pitch" to receive feedback. The application will process the document and provide insights based on the content.
+
+4. **To analyze a CSV file**:
+   - Ensure your CSV file is formatted correctly with columns for `name` and `description`.
+   - Navigate to the application and follow the prompts to upload your CSV file for analysis.
 
 ## License
 This project is licensed under the MIT License. You are free to use, modify, and distribute this software as long as you include the original license in any copies of the software.
