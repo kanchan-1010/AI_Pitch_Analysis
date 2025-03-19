@@ -1,3 +1,7 @@
+Flask
+openai
+pdfplumber
+python-dotenv
+gunicorn
 pytesseract
 Pillow
-openai
