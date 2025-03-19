@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pitch Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Background Styling */
+        body {
+            background-image: url('/static/business_funnel_infographic.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        /* Glassmorphism Effect */
+        .container {
+            background: rgba(0, 0, 0, 0.7); /* Dark glass effect */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            max-width: 600px;
+            margin: 80px auto;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Subtext */
+        p {
+            font-size: 18px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* File Upload Styling */
+        .form-group label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .form-control-file {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* File Upload Button */
+        .form-control-file::file-selector-button {
+            background: #ff7b00;
+            border: none;
+            padding: 8px 12px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .form-control-file::file-selector-button:hover {
+            background: #ff5500;
+        }
+
+        /* Custom Submit Button */
+        .btn-primary {
+            background: linear-gradient(45deg, #ff7b00, #ff3b00);
+            border: none;
+            font-size: 20px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0px 4px 8px rgba(255, 100, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #ff5500, #ff2200);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-3">🚀 AI Pitch Analysis Web App</h1>
+        <p>Upload a pitch deck PDF and get AI-powered feedback!</p>
+        
+        <form action="/analyze" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="pdf_file">Upload a Pitch Deck (PDF)</label>
+                <input type="file" class="form-control-file" id="pdf_file" name="pdf_file" accept=".pdf" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze Pitch</button>
+        </form>
+    </div>
+</body>
+</html>
