@@ -9,7 +9,11 @@
 <body>
     <div class="container">
         <h1 class="mt-5">AI Feedback</h1>
-        <p>{{ feedback }}</p>
+        {% for feedback in feedbacks %}
+            <h2>{{ feedback.name }}</h2>
+            <h3>Feedback:</h3>
+            <p>{{ feedback.feedback }}</p>
+        {% endfor %}
         <a href="/" class="btn btn-primary">Analyze Another Pitch</a>
     </div>
 </body>
