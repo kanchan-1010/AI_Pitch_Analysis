@@ -48,5 +48,23 @@ AI Pitch Analysis is a Flask web application designed to assist entrepreneurs an
    - Ensure your CSV file is formatted correctly with columns for `name` and `description`.
    - Navigate to the application and follow the prompts to upload your CSV file for analysis.
 
+## Troubleshooting
+- If you encounter deployment issues, ensure that all environment variables are set correctly and that the required packages are installed.
+- Check the logs for any specific error messages that can guide you in resolving the issue.
+
+## Future Enhancements
+- Implement user authentication to allow users to save their pitch decks and feedback.
+- Add support for additional file formats (e.g., PPTX).
+- Enhance the AI feedback mechanism with more detailed analysis.
+
+## Contributing
+We welcome contributions! If you'd like to contribute to this project, please follow these steps:
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Submit a pull request with a description of your changes.
+
+## Contact Information
+For any questions or support, please reach out to [your_email@example.com].
+
 ## License
 This project is licensed under the MIT License. You are free to use, modify, and distribute this software as long as you include the original license in any copies of the software.
